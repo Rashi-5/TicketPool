@@ -7,13 +7,11 @@ public class TicketPoolV1 implements TicketPoolInterface{
     String purple = "\u001B[35m";
     String defaultColor = "\u001B[30m";
 
-    private final Queue<Ticket> queue = new LinkedList<Ticket>();
+    private final Queue<Ticket> queue = new LinkedList<>();
 
     private final int queueSize;
     private int noOfTicketSold = 0;
     private int noOfTicketOffered = 0;
-
-    private int totalTicketsOnSale = 0;
 
     public TicketPoolV1(int queueSize) {
         super();

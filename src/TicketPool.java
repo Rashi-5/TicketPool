@@ -8,12 +8,11 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 //ReentrantReadWriteLock
 public class TicketPool implements TicketPoolInterface{
 
-    private final Queue<Ticket> queue = new LinkedList<Ticket>();
+    private final Queue<Ticket> queue = new LinkedList<>();
     String green = "\u001B[32m";
     String yellow = "\u001B[33m";
     String purple = "\u001B[35m";
     String defaultColor = "\u001B[30m";
-    String blue = "\u001B[34m";
     private final int queueSize;
     private int noOfTicketSold = 0;
     private int noOfTicketOffered = 0;

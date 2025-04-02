@@ -1,12 +1,11 @@
 import java.util.Random;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class Producer implements Runnable{
 
-    private TicketPoolInterface ticketPool;
-    private int totalTicketsToProduce;
-    private String vendorName;
-    private String eventName;
+    private final TicketPoolInterface ticketPool;
+    private final int totalTicketsToProduce;
+    private final String vendorName;
+    private final String eventName;
 
     public Producer(TicketPoolInterface ticketPool, int totalTicketsToProduce, String vendorName, String eventName) {
         this.ticketPool = ticketPool;
@@ -24,7 +23,8 @@ public class Producer implements Runnable{
             try {
                 Thread.sleep(new Random().nextInt(500)); // Simulating delay
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                Thread.currentThread().interrupt();
+                System.out.println("Thread was interrupted.");
             }
         }
     }

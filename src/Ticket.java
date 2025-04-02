@@ -1,8 +1,8 @@
 public class Ticket {
 
-    private String ticketNumber;
-    private String vendorName;
-    private String eventName;
+    private final String ticketNumber;
+    private final String vendorName;
+    private final String eventName;
 
     public Ticket(String ticketNumber, String vendorName, String eventName) {
         super();

@@ -22,7 +22,8 @@ public class Consumer implements Runnable{
             try {
                 Thread.sleep(new Random().nextInt(1000)); // Simulating delay
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                Thread.currentThread().interrupt();
+                System.out.println("Thread was interrupted.");
             }
         }
     }

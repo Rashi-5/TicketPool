@@ -41,24 +41,16 @@ public class Main {
         System.out.println("You selected option " + choice);
         scanner.close();
 
-        TicketPoolInterface selectedPool;
-        switch (choice) {
-            case 1:
-                selectedPool = new TicketPoolV1(queueSize);
-                break;
-            case 2:
-                selectedPool = new TicketPool(queueSize);
-                break;
-            case 3:
-                selectedPool = new TicketPoolV2(queueSize, totalTicketsOnSale);
-                break;
-            case 4:
-                selectedPool = new TicketPoolV3(queueSize, totalTicketsOnSale);
-                break;
-            default:
+        TicketPoolInterface selectedPool = switch (choice) {
+            case 1 -> new TicketPoolV1(queueSize);
+            case 2 -> new TicketPool(queueSize);
+            case 3 -> new TicketPoolV2(queueSize, totalTicketsOnSale);
+            case 4 -> new TicketPoolV3(queueSize, totalTicketsOnSale);
+            default -> {
                 System.out.println("Invalid choice, defaulting to TicketPoolV1 (Synchronized).");
-                selectedPool = new TicketPoolV1(queueSize);
-        }
+                yield new TicketPoolV1(queueSize);
+            }
+        };
 
         // start the simulation
         SimulationManager simulation = new SimulationManager(selectedPool, totalTicketsOnSale, vendorName, eventName);

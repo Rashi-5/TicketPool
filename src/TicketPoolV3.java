@@ -10,7 +10,6 @@ public class TicketPoolV3 implements TicketPoolInterface{
     String green = "\u001B[32m";
     String yellow = "\u001B[33m";
     String purple = "\u001B[35m";
-    String blue = "\u001B[34m";
     String defaultColor = "\u001B[31m";
     public TicketPoolV3(int queueSize, int totalTicketsOnSale) {
         this.queue = new CustomBlockingQueue<>(queueSize);

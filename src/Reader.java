@@ -1,5 +1,5 @@
 public class Reader implements Runnable{
-    private TicketPoolInterface ticketPool;
+    private final TicketPoolInterface ticketPool;
 
     public Reader(TicketPoolInterface ticketPool) {
         this.ticketPool = ticketPool;
@@ -18,7 +18,8 @@ public class Reader implements Runnable{
             try {
                 Thread.sleep(2000); // Checking status every 2 seconds
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                Thread.currentThread().interrupt();
+                System.out.println("Thread was interrupted.");
             }
         }
     }

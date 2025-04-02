@@ -1,4 +1,3 @@
-import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.locks.ReadWriteLock;
@@ -11,7 +10,7 @@ public class TicketPoolV2 implements TicketPoolInterface{
     private int noOfTicketSold = 0;
     private int noOfTicketOffered = 0;
     private int queueSize;
-    private int totalTicketsOnSale;
+    private final int totalTicketsOnSale;
     String green = "\u001B[32m";
     String yellow = "\u001B[33m";
     String purple = "\u001B[35m";
