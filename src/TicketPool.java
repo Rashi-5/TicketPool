@@ -36,7 +36,7 @@ public class TicketPool implements TicketPoolInterface{
                 try {
                     QueueFull.await();
                 } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt(); // Properly handle the interruption
+                    Thread.currentThread().interrupt();
                     System.out.println("Thread was interrupted.");
                 }
             }
